@@ -1,0 +1,14 @@
+<h2>Menu</h2>
+<div (click)="scrollTo('ourProductSection')">Section 1
+  <ng-container *ngIf="getCurrentSection() === 'ourProductSection'">O</ng-container>
+</div>
+<div (click)="scrollTo('section2')">Section 2
+  <ng-container *ngIf="getCurrentSection() === 'section2'">O</ng-container>
+</div>
+<div (click)="scrollTo('section3')">Section 3
+  <ng-container *ngIf="getCurrentSection() === 'section3'">O</ng-container>
+</div>
+<div (click)="scrollTo('section4')">Section 4
+  <ng-container *ngIf="getCurrentSection() === 'section4'">O</ng-container>
+</div>
+<br/>
