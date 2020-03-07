@@ -1,13 +1,14 @@
-import {Component, HostListener, OnInit, Inject} from '@angular/core';
-import * as $ from 'jquery';
-
+import {Component, HostListener, OnInit, Inject, ViewChild, ElementRef, AfterViewInit, Renderer2} from '@angular/core';
 @Component({
   selector: 'app-about-section',
   templateUrl: './about-section.component.html',
   styleUrls: ['./about-section.component.css']
 })
-export class AboutSectionComponent implements OnInit {
 
+export class AboutSectionComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('blockAbout', {static: false}) block: ElementRef;
+  @ViewChild('videoBlock', {static: false}) videoBlock: ElementRef;
   played: boolean;
 
   constructor() {
@@ -17,6 +18,9 @@ export class AboutSectionComponent implements OnInit {
     this.played = false;
   }
 
+  ngAfterViewInit(): void {
+  }
+
   @HostListener('window: scroll', ['$event'])
   onScroll(event): void {
     this.playVideo(event);
@@ -24,13 +28,14 @@ export class AboutSectionComponent implements OnInit {
 
   private playVideo(event) {
     if (!this.played) {
-      if ($('.block-about').is(':visible') ||
-        ($('.block-about').offset().top - 500) <= event.target.defaultView.scrollY) {
-        if ($('#videoBlockAbout').get(0).paused) {
-          $('#videoBlockAbout').trigger('play');
+      if (
+        (this.block.nativeElement.getBoundingClientRect().top - 500) <= event.target.defaultView.scrollY) {
+        if (this.videoBlock.nativeElement.paused) {
+          this.videoBlock.nativeElement.play();
         }
 
       }
+
     }
   }
 }

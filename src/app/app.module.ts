@@ -11,6 +11,7 @@ import { AboutSectionComponent } from './pages/start/sections/about-section/abou
 import { ContactSectionComponent } from './pages/start/sections/contact-section/contact-section.component';
 import { FooterComponent } from './static/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import {MapService} from './map.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +24,11 @@ import { CommonModule } from '@angular/common';
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    LeafletModule.forRoot(),
     CommonModule,
   ],
-  providers: [],
+  providers: [MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

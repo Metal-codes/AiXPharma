@@ -1,5 +1,4 @@
-import {Component, HostListener, OnInit, Inject} from '@angular/core';
-import * as $ from 'jquery';
+import {Component, HostListener, OnInit, Inject, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-service-section',
@@ -8,6 +7,8 @@ import * as $ from 'jquery';
 })
 export class ServiceSectionComponent implements OnInit {
 
+  @ViewChild('blockAbout', {static: false}) block: ElementRef;
+  @ViewChild('videoBlock', {static: false}) videoBlock: ElementRef;
   played: boolean;
 
   constructor() {
@@ -25,16 +26,12 @@ export class ServiceSectionComponent implements OnInit {
   private playVideo(event) {
     if (!this.played) {
       if (
-        $('.block-service').is(':visible')
-        ||
-        ($('.block-service').offset().top - 500) <= event.target.defaultView.scrollY
-      ) {
-        if ($('#videoBlockService').get(0).paused) {
-          $('#videoBlockService').trigger('play');
+        (this.block.nativeElement.getBoundingClientRect().top - 500) <= event.target.defaultView.scrollY) {
+        if (this.videoBlock.nativeElement.paused) {
+          this.videoBlock.nativeElement.play();
         }
 
       }
     }
-
   }
 }

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {latLng, Layer, marker, popup, tileLayer} from 'leaflet';
-import * as $ from 'jquery';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {MapService} from '../../../../map.service';
+
 @Component({
   selector: 'app-contact-section',
   templateUrl: './contact-section.component.html',
@@ -8,39 +8,46 @@ import * as $ from 'jquery';
 })
 export class ContactSectionComponent implements OnInit {
 
-  // Open Street Map definitions
-  LAYER_OSM = tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 25, attribution: 'Open Street Map'});
+  @ViewChild('number', {static: false}) number: ElementRef;
+  @ViewChild('buttonNumber', {static: false}) buttonNumber: ElementRef;
+  @ViewChild('email', {static: false}) email: ElementRef;
+  @ViewChild('buttonEmail', {static: false}) buttonEmail: ElementRef;
+  private map: any;
+  private marker: any;
 
-  // Values to bind to Leaflet Directive
-  options = {
-    layers: [this.LAYER_OSM],
-    zoom: 17,
-    center: latLng(50.8699128, 20.6122257)
-  };
-
-  markers: Layer[] = [];
-
-  constructor() {
+  constructor(private mapService: MapService, private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
-    this.addMarker();
+    if (this.mapService.L) {
+      this.setupMap();
+    }
   }
 
-  private addMarker() {
-    this.markers.push(
-      marker([50.869955, 20.6107172]).bindPopup(popup().setLatLng([50.869958, 20.6107172]).setContent('AiXPharma\n' +
-        'ul. Urzędnicza 9A/35\n' +
-        '25-729 Kielce'))
-    );
+  private setupMap() {
+    this.map = this.mapService.L.map('contactmap').setView([50.8699128, 20.6122257], 17);
+    this.mapService.L.tileLayer(
+      'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      {
+        maxZoom: 25,
+        attribution:
+          'copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>,' +
+          ' Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+      }
+    ).addTo(this.map);
+    this.marker = this.mapService.L.marker([50.869955, 20.6107172]).addTo(this.map);
+    this.marker.bindPopup('AiXPharma<br>' +
+      'ul. Urzędnicza 9A/35<br>' +
+      '25-729 Kielce').openPopup();
   }
 
   showPhoneNumber(): void {
-    $('#buttonNumber').hide();
-    $('#number').text('+48 222 222 222');
+    this.renderer.setStyle(this.buttonNumber.nativeElement, 'display', 'none');
+    this.number.nativeElement.innerText = '+48 222 222 222';
   }
+
   showEmail(): void {
-    $('#buttonEmail').hide();
-    $('#email').text('aixpharma@gmail.comm');
+    this.renderer.setStyle(this.buttonEmail.nativeElement, 'display', 'none');
+    this.email.nativeElement.innerText = 'aixpharma@gmail.comm';
   }
 }

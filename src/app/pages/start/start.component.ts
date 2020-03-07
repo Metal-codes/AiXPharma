@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-start',
@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class StartComponent implements OnInit {
   static currentSection = 'ourProductSection';
-
+  @ViewChild('sectionContainer', {static: true}) public sectionC: ElementRef;
   constructor() {
   }
 

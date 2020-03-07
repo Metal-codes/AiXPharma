@@ -1,5 +1,5 @@
 <app-head></app-head>
-<div id="section-container" appScrollSpy [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)">
+<div #sectionContainer id="section-container" appScrollSpy [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)">
   <div class="section" id="service">
     <app-service-section></app-service-section>
   </div>

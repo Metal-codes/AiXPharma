@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, HostListener, OnInit, Inject} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnInit, Inject, ViewChild, ElementRef, Renderer2, NgZone} from '@angular/core';
 import {StartComponent} from '../../pages/start/start.component';
-import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-head',
@@ -9,9 +9,12 @@ import * as $ from 'jquery';
 })
 export class HeadComponent implements OnInit, AfterViewInit {
 
-  shrinked: boolean;
+  @ViewChild('header', {static: true}) header: ElementRef;
 
-  constructor() {
+  shrinked: boolean;
+  private interval: any;
+
+  constructor(private renderer: Renderer2, private start: StartComponent, private zone: NgZone) {
   }
 
   private static getCurrentSection(): string {
@@ -31,14 +34,14 @@ export class HeadComponent implements OnInit, AfterViewInit {
   onScroll(event): void {
     if (event.target.defaultView.scrollY < 50) {
       if (this.shrinked) {
-        $('#header').removeClass('shrink');
-        $('.section-container').removeClass('shrink');
+        this.renderer.removeClass(this.header.nativeElement, 'shrink');
+        this.renderer.removeClass(this.start.sectionC.nativeElement, 'shrink');
         this.shrinked = false;
       }
     } else if (event.target.defaultView.scrollY > 50) {
       if (!this.shrinked) {
-        $('#header').addClass('shrink');
-        $('.section-container').addClass('shrink');
+        this.renderer.addClass(this.header.nativeElement, 'shrink');
+        this.renderer.addClass(this.start.sectionC.nativeElement, 'shrink');
         this.shrinked = true;
       }
     }
@@ -53,8 +56,10 @@ export class HeadComponent implements OnInit, AfterViewInit {
       .scrollIntoView({behavior: 'smooth', block: 'start'});
   }
   private showTopBar(): void {
-    setInterval(() => {
-      $('.header').addClass('ready');
-    }, 1000);
+    this.zone.runOutsideAngular(() => {
+      this.interval = setInterval(() => {
+        this.renderer.addClass(this.header.nativeElement, 'ready');
+      }, 1000);
+    });
   }
 }

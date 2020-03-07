@@ -1,22 +1,24 @@
 <div class="block-contact">
-  <div id="contactmap" leaflet
-       [leafletOptions]="options"
-       [leafletLayers]="markers"></div>
+  <div id="contactmap"></div>
   <div class="text">
     <div>
       <h1 class="noselect">Kontakt</h1>
       <h2>Siedziba firmy:</h2>
       <p>
-        AiXPharma<br />
-        ul. Urzędnicza 9A/35<br />
-        25-729 Kielce<br />
-        <br />
-        NIP<br />
-        RREGON<br />
+        AiXPharma<br/>
+        ul. Urzędnicza 9A/35<br/>
+        25-729 Kielce<br/>
+        <br/>
+        NIP<br/>
+        RREGON<br/>
       </p>
       <h2>Dział handlowy:</h2>
-        Telefon: <span id="number"></span><div id="buttonNumber" class="show-button" (click)="showPhoneNumber();">Pokaż numer</div><br />
-        E-mail: <span id="email"></span><div id="buttonEmail" class="show-button" (click)="showEmail();">Pokaż adres</div><br />
+      Telefon: <span #number id="number"></span>
+      <div #buttonNumber id="buttonNumber" class="show-button" (click)="showPhoneNumber();">Pokaż numer</div>
+      <br/>
+      E-mail: <span #email id="email"></span>
+      <div #buttonEmail id="buttonEmail" class="show-button" (click)="showEmail();">Pokaż adres</div>
+      <br/>
     </div>
   </div>
 </div>
