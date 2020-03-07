@@ -1,0 +1,60 @@
+div.block-service {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 15;
+}
+#videoBlockService {
+  display: block;
+  position: absolute;
+  left: 0;
+}
+div.block-service video {
+  height: calc(100vh - 120px);
+  min-height: 520px;
+  z-index: 16;
+}
+div.block-service div.text > div {
+  position: absolute;
+  right: 0;
+  padding-right: 70px;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 18;
+  background: #fff;
+}
+div.block-service div.text > div h1 {
+  margin-top: 15px;
+  opacity: 0.7;
+  text-align: center;
+}
+div.block-service div.text > div p {
+  margin: 35px 0px;
+  font-size: 18px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+div.block-service div.text > div h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+div.block-service div.text:after {
+  content: " ";
+  position: absolute;
+  background: #fff;
+  z-index: 17;
+  right: 0;
+  top: -50px;
+  width: 100%;
+  height: calc(100vh - 120px);
+  min-height: 520px;
+
+  -moz-transform: rotate(70deg);
+  -webkit-transform: rotate(70deg);
+  -o-transform: rotate(70deg);
+  -ms-transform: rotate(70deg);
+  transform: rotate(70deg);
+}

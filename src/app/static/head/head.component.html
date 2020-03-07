@@ -1,14 +1,21 @@
-<h2>Menu</h2>
-<div (click)="scrollTo('ourProductSection')">Section 1
-  <ng-container *ngIf="getCurrentSection() === 'ourProductSection'">O</ng-container>
+<div class="header noselect" id="header">
+  <div class="top-bar">
+    <div class="container">
+      <div class="block-logo">
+        <a routerLink="/start">
+          <img src="./public/images/logo-dark.png" alt="AiX Pharma Logo" id="logo-white">
+          <img src="./public/images/logo.png" alt="AiX Pharma Logo" id="logo-black">
+        </a>
+      </div>
+      <div class="block-menu">
+        <ul>
+          <li (click)="scrollTop()">TOP</li>
+          <li (click)="scrollTo('service')">Nasze usługi</li>
+          <li (click)="scrollTo('about-us')">O nas</li>
+          <li (click)="scrollTo('contact')">Kontakt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
-<div (click)="scrollTo('section2')">Section 2
-  <ng-container *ngIf="getCurrentSection() === 'section2'">O</ng-container>
-</div>
-<div (click)="scrollTo('section3')">Section 3
-  <ng-container *ngIf="getCurrentSection() === 'section3'">O</ng-container>
-</div>
-<div (click)="scrollTo('section4')">Section 4
-  <ng-container *ngIf="getCurrentSection() === 'section4'">O</ng-container>
-</div>
-<br/>

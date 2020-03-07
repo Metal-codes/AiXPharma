@@ -1,0 +1,80 @@
+@media screen and (max-width: 1050px) {
+  #section-container div.section {
+    height: 100% !important;
+    overflow: visible !important;
+  }
+
+  #section-container.shrink {
+    margin-top: 0 !important;
+  }
+
+  video {
+    display: none !important;
+  }
+
+  #contactmap {
+    display: none !important;
+  }
+
+  div.block-about div.text > div,
+  div.block-contact div.text > div,
+  div.block-service div.text > div {
+    right: 0 !important;
+    left: 0 !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+
+  div.block-about div.text > div p,
+  div.block-contact div.text > div p,
+  div.block-service div.text > div p {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  div.block-about div.text > div h2,
+  div.block-contact div.text > div h2,
+  div.block-service div.text > div h2 {
+    margin-top: 25px !important;
+  }
+
+  div.block-about div.text:after,
+  div.block-contact div.text:after,
+  div.block-service div.text:after {
+    display: none !important;
+  }
+
+  div.block-contact div.text > div p,
+  div.block-contact div.text {
+    text-align: center !important;
+  }
+
+  div.header {
+    height: 100% !important;
+  }
+  div.header:after {
+    height: 100% !important;
+  }
+
+  div.header.shrink div.top-bar {
+    position: relative !important;
+  }
+}
+@media screen and (max-width: 775px) {
+  div.header {
+    overflow: visible !important;
+  }
+  div.header div.top-bar {
+    padding: 15px 0;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  div.header div.container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  div.header div.container div.block-menu ul li {
+    display: block  !important;
+  }
+}

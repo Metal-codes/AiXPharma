@@ -1,0 +1,135 @@
+div.header {
+  background: #fff url("/public/images/bg-top.png") no-repeat;
+  background-size: 100% auto;
+  height: calc(100vh);
+  position: relative;
+  z-index: 35;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 0px 24px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 24px -9px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 24px -9px rgba(0,0,0,0.75);
+}
+
+div.header:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100vh);
+  width: calc(100vw);
+  background: rgba(0, 0, 0, .5);
+  display: block;
+  z-index: 36;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+div.header.ready:after {
+  opacity: 1;
+}
+
+div.header div.top-bar {
+  display: flex;
+  background: rgba(255, 255, 255, 0);
+  width: calc(100vw);
+  z-index: 150;
+  height: 150px;
+}
+
+div.header.shrink div.top-bar {
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 5px);
+  height: 120px;
+}
+
+div.header div.container {
+  transition: all 1s;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 37;
+  position: relative;
+  opacity: 0;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+div.header.ready div.container {
+  opacity: 1;
+}
+
+div.header.shrink div.container {
+  -moz-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+div.header div.container div.block-logo {
+  display: flex;
+}
+
+div.header div.container div.block-logo img {
+  width: 150px;
+}
+
+div.header.shrink div.container div.block-logo img#logo-white,
+div.header div.container div.block-logo img#logo-black {
+  display: none;
+}
+
+div.header.shrink div.container div.block-logo img#logo-black {
+  display: block;
+}
+
+div.header.ready div.container div.block-logo img {
+
+}
+
+div.header div.container div.block-menu {
+
+}
+
+div.header div.container div.block-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.header div.container div.block-menu ul li {
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-weight: bold;
+  font-size: 20px;
+  -moz-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  text-align: center;
+}
+
+div.header.shrink div.container div.block-menu ul li {
+  color: rgba(0, 0, 0, 1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+div.header.shrink div.container div.block-menu ul li:hover,
+div.header div.container div.block-menu ul li:hover {
+  opacity: 0.6;
+}
