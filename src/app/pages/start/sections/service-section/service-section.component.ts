@@ -1,6 +1,5 @@
 import {Component, HostListener, OnInit, Inject} from '@angular/core';
 import * as $ from 'jquery';
-import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-service-section',
@@ -11,7 +10,7 @@ export class ServiceSectionComponent implements OnInit {
 
   played: boolean;
 
-  constructor(@Inject(WINDOW) private window: Window, ) {
+  constructor() {
   }
 
   ngOnInit() {

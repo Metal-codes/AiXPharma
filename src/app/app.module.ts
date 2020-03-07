@@ -11,10 +11,6 @@ import { AboutSectionComponent } from './pages/start/sections/about-section/abou
 import { ContactSectionComponent } from './pages/start/sections/contact-section/contact-section.component';
 import { FooterComponent } from './static/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +23,10 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     FooterComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     LeafletModule.forRoot(),
     CommonModule,
-    TransferHttpCacheModule,
-    HttpClientModule,
-    NgtUniversalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

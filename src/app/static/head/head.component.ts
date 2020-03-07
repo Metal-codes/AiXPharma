@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, HostListener, OnInit, Inject} from '@angular/core';
 import {StartComponent} from '../../pages/start/start.component';
 import * as $ from 'jquery';
-import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-head',
@@ -12,7 +11,7 @@ export class HeadComponent implements OnInit, AfterViewInit {
 
   shrinked: boolean;
 
-  constructor(@Inject(WINDOW) private window: Window, ) {
+  constructor() {
   }
 
   private static getCurrentSection(): string {
