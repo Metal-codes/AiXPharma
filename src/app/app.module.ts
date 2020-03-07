@@ -1,12 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StartComponent } from './pages/start/start.component';
 import { ScrollSpyDirective } from './scroll-spy.directive';
 import { HeadComponent } from './static/head/head.component';
-import { OurProductsSectionComponent } from './pages/start/sections/our-products-section/our-products-section.component';
+import { ServiceSectionComponent } from './pages/start/sections/service-section/service-section.component';
+import { AboutSectionComponent } from './pages/start/sections/about-section/about-section.component';
+import { ContactSectionComponent } from './pages/start/sections/contact-section/contact-section.component';
+import { FooterComponent } from './static/footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
 
 @NgModule({
   declarations: [
@@ -14,11 +21,19 @@ import { OurProductsSectionComponent } from './pages/start/sections/our-products
     StartComponent,
     ScrollSpyDirective,
     HeadComponent,
-    OurProductsSectionComponent
+    ServiceSectionComponent,
+    AboutSectionComponent,
+    ContactSectionComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    LeafletModule.forRoot(),
+    CommonModule,
+    TransferHttpCacheModule,
+    HttpClientModule,
+    NgtUniversalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

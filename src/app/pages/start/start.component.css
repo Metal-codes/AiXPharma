@@ -1,0 +1,9 @@
+#section-container.shrink {
+  margin-top: 120px;
+}
+
+#section-container div.section {
+  height: calc(100vh - 120px);
+  min-height: 520px;
+  overflow: hidden;
+}
