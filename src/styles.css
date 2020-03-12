@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+
 html, body {
   margin: 0;
   padding: 0;
@@ -72,3 +73,28 @@ p {
   user-select: none;
 }
 
+div.content > p {
+  margin: 35px 0px;
+  font-size: 18px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+div.content > h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+div.block-contact div.content > h2 {
+  text-align: left;
+}
+div.show-button {
+  display: inline-block;
+  background: #1974c8;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 5px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+div.show-button:hover {
+  background: #1962b4;
+}

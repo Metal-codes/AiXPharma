@@ -9,10 +9,10 @@
       </div>
       <div class="block-menu">
         <ul>
-          <li (click)="scrollTop()">TOP</li>
-          <li (click)="scrollTo('service')">Nasze usługi</li>
-          <li (click)="scrollTo('about-us')">O nas</li>
-          <li (click)="scrollTo('contact')">Kontakt</li>
+          <li (click)="scrollTop()" [innerHTML]="'MENU.TOP_HTML' | translate"></li>
+          <li (click)="scrollTo('service')">{{'SECTIONS.SERVICES.MENU_TEXT' | translate}}</li>
+          <li (click)="scrollTo('about-us')">{{'SECTIONS.ABOUT.MENU_TEXT' | translate}}</li>
+          <li (click)="scrollTo('contact')">{{'SECTIONS.CONTACT.MENU_TEXT' | translate}}</li>
         </ul>
       </div>
     </div>

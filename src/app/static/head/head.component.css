@@ -42,7 +42,7 @@ div.header.shrink div.top-bar {
   top: 0;
   left: 0;
   width: calc(100vw - 5px);
-  height: 120px;
+  height: 86px;
 }
 
 div.header div.container {

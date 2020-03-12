@@ -50,12 +50,3 @@ div.block-contact div.text:after {
   -ms-transform: rotate(-70deg);
   transform: rotate(-70deg);
 }
-div.show-button {
-  display: inline-block;
-  background: #1974c8;
-  color: #fff;
-  border-radius: 5px;
-  padding: 3px 5px;
-  margin: 5px 0px;
-  cursor: pointer;
-}

@@ -2,23 +2,13 @@
   <div id="contactmap"></div>
   <div class="text">
     <div>
-      <h1 class="noselect">Kontakt</h1>
-      <h2>Siedziba firmy:</h2>
-      <p>
-        AiXPharma<br/>
-        ul. Urzędnicza 9A/35<br/>
-        25-729 Kielce<br/>
-        <br/>
-        NIP<br/>
-        RREGON<br/>
-      </p>
-      <h2>Dział handlowy:</h2>
-      Telefon: <span #number id="number"></span>
-      <div #buttonNumber id="buttonNumber" class="show-button" (click)="showPhoneNumber();">Pokaż numer</div>
+      <h1 class="noselect">{{'SECTIONS.CONTACT.TITLE' | translate}}</h1>
+      <div class="content" [innerHTML]="'SECTIONS.CONTACT.HTML' | translate"></div>
+      {{'SECTIONS.CONTACT.TELEPHONE_TEXT' | translate}}<span #number id="number"></span>
+      <div #buttonNumber id="buttonNumber" class="show-button" (click)="showPhoneNumber();">{{'SECTIONS.CONTACT.TELEPHONE_BUTTON_TEXT' | translate}}</div>
       <br/>
-      E-mail: <span #email id="email"></span>
-      <div #buttonEmail id="buttonEmail" class="show-button" (click)="showEmail();">Pokaż adres</div>
-      <br/>
+      {{'SECTIONS.CONTACT.EMAIL_TEXT' | translate}}<span #email id="email"></span>
+      <div #buttonEmail id="buttonEmail" class="show-button" (click)="showEmail();">{{'SECTIONS.CONTACT.EMAIL_BUTTON_TEXT' | translate}}</div>
     </div>
   </div>
 </div>

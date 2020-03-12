@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {MapService} from '../../../../map.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-section',
@@ -15,7 +16,9 @@ export class ContactSectionComponent implements OnInit {
   private map: any;
   private marker: any;
 
-  constructor(private mapService: MapService, private renderer: Renderer2) {
+  constructor(private mapService: MapService,
+              private renderer: Renderer2,
+              private translate: TranslateService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +30,7 @@ export class ContactSectionComponent implements OnInit {
   private setupMap() {
     this.map = this.mapService.L.map('contactmap').setView([50.8699128, 20.6122257], 17);
     this.mapService.L.tileLayer(
-      'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
       {
         maxZoom: 25,
         attribution:
@@ -35,19 +38,30 @@ export class ContactSectionComponent implements OnInit {
           ' Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
       }
     ).addTo(this.map);
-    this.marker = this.mapService.L.marker([50.869955, 20.6107172]).addTo(this.map);
-    this.marker.bindPopup('AiXPharma<br>' +
-      'ul. Urzędnicza 9A/35<br>' +
-      '25-729 Kielce').openPopup();
+    this.marker = this.mapService.L.marker([50.869955, 20.6107172], {
+      icon: this.mapService.L.icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'leaflet/marker-icon.png',
+        shadowUrl: 'leaflet/marker-shadow.png'
+      })
+    }).addTo(this.map);
+    this.translate.get('SECTIONS.CONTACT.MAP_POPUP_HTML').subscribe((text: string) => {
+      this.marker.bindPopup(text).openPopup();
+    });
   }
 
   showPhoneNumber(): void {
     this.renderer.setStyle(this.buttonNumber.nativeElement, 'display', 'none');
-    this.number.nativeElement.innerText = '+48 222 222 222';
+    this.translate.get('SECTIONS.CONTACT.TELEPHONE_NUMBER').subscribe((text: string) => {
+      this.number.nativeElement.innerText = text;
+    });
   }
 
   showEmail(): void {
     this.renderer.setStyle(this.buttonEmail.nativeElement, 'display', 'none');
-    this.email.nativeElement.innerText = 'aixpharma@gmail.comm';
+    this.translate.get('SECTIONS.CONTACT.EMAIL_ADDRESS').subscribe((text: string) => {
+      this.email.nativeElement.innerText = text;
+    });
   }
 }

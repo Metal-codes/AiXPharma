@@ -1,0 +1,32 @@
+{
+  "MENU": {
+    "TOP_HTML": "TOP"
+  },
+  "SECTIONS": {
+    "SERVICES": {
+      "MENU_TEXT": "Nasze usługi",
+      "TITLE": "Nasze usługi",
+      "HTML": "<p>W zakresie ochrony środowiska koncentrujemy się na usługach związanych z neutralizacją odpadów u klienta, tak by mógł być on bezpiecznie przetransportowany i unieszkodliwiony. Staramy się wypełnić lukę na rynku w oferowaniu takich usług, które nie są standardowo wykonywane przez większość firm związanych z gospodarką odpadami. Doświadczenie w zakresie znajomości rynku odpadów powoduje, iż potrafimy wyjść z propozycjami obniżającymi koszty unieszkodliwinia odpadów.</p><h2>Działamy głównie na terenie Polski Centralnej i Południowej!</h2>"
+    },
+    "ABOUT": {
+      "MENU_TEXT": "O nas",
+      "TITLE": "O nas",
+      "HTML": "<p>AiXPharma zajmuje się dystrybucją leków i wiarygodnych suplementów diety na terenie Polski i innowacyjnymi rozwiązaniami w zakresie ochrony środowiska i gospodarki odpadami. W wyborze naszych działań starmy się być jak najbliżej klienta, tak by empatycznie poznac jego potrzeby i dostosowac się do jego potrzeb znajdując najlepsze rozwiązanie. Staramy się wykraczać poza standardowe cele biznesowe, co przyczynia się do odbioru nas jako stabilnego i pewnnego partnera w biznesie.</p>"
+    },
+    "CONTACT": {
+      "MENU_TEXT": "Kontakt",
+      "TITLE": "Kontakt",
+      "HTML": "<h2>Siedziba firmy:</h2><p>AiXPharma<br/>ul. Urzędnicza 9A/35<br/>25-729 Kielce<br/><br/>NIP<br/>REGON<br/></p><h2>Dział handlowy:</h2>",
+      "TELEPHONE_TEXT": "Telefon: ",
+      "TELEPHONE_NUMBER": "+48 222 222 222",
+      "TELEPHONE_BUTTON_TEXT": "Pokaż numer",
+      "EMAIL_TEXT": "E-mail: ",
+      "EMAIL_ADDRESS": "aixpharma@gmail.comm",
+      "EMAIL_BUTTON_TEXT": "Pokaż adres",
+      "MAP_POPUP_HTML": "AiXPharma<br>ul. Urzędnicza 9A/35<br>25-729 Kielce"
+    }
+  },
+  "FOOTER": {
+    "HTML": "AiXPharma © 2020<br />All Rights Reserved"
+  }
+}

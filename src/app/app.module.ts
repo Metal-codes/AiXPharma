@@ -12,6 +12,9 @@ import { ContactSectionComponent } from './pages/start/sections/contact-section/
 import { FooterComponent } from './static/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import {MapService} from './map.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +30,19 @@ import {MapService} from './map.service';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     CommonModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'public/lang/', '.json');
+}
